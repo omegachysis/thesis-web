@@ -19,6 +19,11 @@
     box-shadow:         0 0 5px grey;
 }
 
+.navbar-nav > li{
+    padding-left:10px;
+    padding-right:10px;
+}
+
 .content {
     padding-top: 6rem;
     max-width: 1200px;
