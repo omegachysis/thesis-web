@@ -35,21 +35,30 @@ function getTaskHtml(task) {
   var progress = (task.progress / task.effort) * 100;
   var badgeColor = "badge-light";
   var barColor = "bg-primary";
+  var timeBarColor = "bg-danger";
   var badgeText = "Upcoming";
 
   if (task.progress == task.effort) {
     badgeColor = "badge-success";
     barColor = "bg-success";
+    timeBarColor = "bg-success";
     badgeText = "Completed";
   } else if (taskIsCurrent(task)) {
     badgeColor = "badge-primary";
     barColor = "bg-primary";
+    timeBarColor = "bg-danger";
     badgeText = "In Progress";
-  } else if (Date.now > new Date(task.end)) {
+  } else if (Date.now() > new Date(task.end)) {
     badgeColor = "badge-danger";
     barColor = "bg-danger";
+    timeBarColor = "bg-danger";
     badgeText = "Overdue";
   }
+
+  var totalDays = (new Date(task.end) - new Date(task.begin)) / 86400000;
+  var daysPassed = (Date.now() - new Date(task.begin)) / 86400000;
+  var daysLeft = Math.max(0, (new Date(task.end) - Date.now())) / 86400000;
+  var timePassed = Math.max(0, Math.min(100, daysPassed * 100 / totalDays));
 
   return `
   <div class="row">
@@ -57,13 +66,19 @@ function getTaskHtml(task) {
         <h5>${task.text}
             <span class="badge badge-pill ${badgeColor}">${badgeText}</span>
         </h5>
-        <a>${task.begin} to ${task.end}</a>
+        <a>${task.begin} to ${task.end}</a><br />
+        <a>${daysLeft.toFixed(0)} days left</a>
     </div>
     <div class="col-3">
-        <h6>Estimated Progress: ${progress.toFixed(0)}%</h6>
+        <strong>Estimated Progress: ${progress.toFixed(0)}%</strong>
         <div class="progress">
             <div class="progress-bar progress-bar-striped ${barColor}" 
             style="width: ${progress}%"></div>
+        </div>
+        <a>Time passed so far: ${timePassed.toFixed(0)}%</a>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped ${timeBarColor}" 
+            style="width: ${timePassed}%"></div>
         </div>
     </div>
   </div><br />`;
