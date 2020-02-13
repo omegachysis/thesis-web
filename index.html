@@ -89,9 +89,9 @@
 
 </body>
 <script>
-    $(function() {
-        $("#navbar").load("_navbar.html");
+    $("#navbar").load("_navbar.html");
 
+    $(function() {
         $.getJSON("meetings.json", function(json) {
             $("#lastMeeting").html(getMeetingHtml(json.meetings[0]));
         });

@@ -17,7 +17,13 @@
         <br />
         <div class="container">
             <h1>Meeting Log</h1>
-            <div id="meeting-log"></div>
+            <div id="meeting-log">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <hr>
         <footer class="container">
@@ -36,18 +42,20 @@
 
 </body>
 <script>
+    $("#navbar").load("_navbar.html");
+
     $(function() {
-        $("#navbar").load("_navbar.html");
+        $.getJSON("meetings.json", function(json) {
+            var meetings = "";
+            for (meeting of json.meetings) {
+                meetings += "<hr>";
+                meetings += getMeetingHtml(meeting);
+                meetings += "<br />";
+            }
+            $("#meeting-log").html(meetings);
+        });
     });
 
-    $.getJSON("meetings.json", function(json) {
-        var meetings = "";
-        for (meeting of json.meetings) {
-            meetings += "<hr>";
-            meetings += getMeetingHtml(meeting);
-            meetings += "<br />";
-        }
-        $("#meeting-log").html(meetings);
-    });
+
 </script>
 </html>
