@@ -1,0 +1,21 @@
+{
+"tasks": [
+
+{
+    "begin": "2020-02-12",
+    "end": "2020-02-19",
+    "text": "Create thesis website",
+    "effort": 1000,
+    "progress": 400
+},
+
+{
+    "begin": "2020-02-12",
+    "end": "2020-03-04",
+    "text": "Read Eiben &amp; Smith - Introduction to Evolutionary Computing",
+    "effort": 1,
+    "progress": 0
+}
+
+]
+}

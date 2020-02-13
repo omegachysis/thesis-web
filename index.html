@@ -23,27 +23,40 @@
             <a role="button" class="btn btn-danger btn-lg" href="about.html">Learn More</a>
         </div>
 
-        <div class="container"><div id="last-meeting">
-            <div class="d-flex justify-content-center">
-                <div class="spinner-border" role="status">
-                    <span class="sr-only">Loading...</span>
+        <div class="container">
+            <div id="lastMeeting">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
                 </div>
             </div>
-        </div></div><br /><hr>
+        </div><br /><hr>
+
+        <div class="container">
+            <h3>Current Tasks</h3><br />
+            <div id="currentTasks">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </div>
+        </div><br /><hr>
 
         <div class="container">
             <div class="row">
                 <div class="col">
                     <h3>Progress</h3><br />
-                    <p>Estimated progress:</p>
+                    <h6 id="overallProgress">Estimated progress:</h6>
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" 
+                        <div class="progress-bar progress-bar-striped" 
                         style="width: 0%"></div>
                     </div>
                     <br />
-                    <p>Time passed so far:</p>
+                    <h6>Time passed so far:</h6>
                     <div class="progress">
-                        <div id="timeBar" class="progress-bar progress-bar-striped progress-bar-animated bg-danger" 
+                        <div id="timeBar" class="progress-bar progress-bar-striped bg-danger" 
                         style="width: 0%"></div>
                     </div>
                 </div>
@@ -80,7 +93,18 @@
         $("#navbar").load("_navbar.html");
 
         $.getJSON("meetings.json", function(json) {
-            $("#last-meeting").html(getMeetingHtml(json.meetings[0]));
+            $("#lastMeeting").html(getMeetingHtml(json.meetings[0]));
+        });
+
+        $.getJSON("tasks.json", function(json) {
+            var tasks = "";
+            for (task of json.tasks) {
+                if (taskIsCurrent(task)) {
+                    tasks += getTaskHtml(task);
+                }
+            }
+
+            $("#currentTasks").html(tasks);
         });
 
         var timeLeft = new Date("2021-03-30") - Date.now();
@@ -89,7 +113,10 @@
         var timePercent = ((totalTime - timeLeft) / totalTime) * 100;
         var daysLeft = timeLeft / 86400000;
 
+        var overallProgress = 0;
+
         $("#timeBar").css("width", timePercent+"%");
+        $("#overallProgress").text(`Estimated progress: ${overallProgress}%`);
         setTimeout(function(){
             odometer.innerHTML = 456;
         }, 1000);

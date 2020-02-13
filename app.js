@@ -1,3 +1,4 @@
+
 function getMeetingHtml(meeting) {
   var deliverables = "";
   for (item of meeting.deliverables) {
@@ -28,6 +29,56 @@ function getMeetingHtml(meeting) {
       <ul>${continuing}</ul>
     </div>
   </div>`;
+}
+
+function getTaskHtml(task) {
+  var progress = (task.progress / task.effort) * 100;
+  var badgeColor = "badge-light";
+  var barColor = "bg-primary";
+  var badgeText = "Upcoming";
+
+  if (task.progress == task.effort) {
+    badgeColor = "badge-success";
+    barColor = "bg-success";
+    badgeText = "Completed";
+  } else if (taskIsCurrent(task)) {
+    badgeColor = "badge-primary";
+    barColor = "bg-primary";
+    badgeText = "In Progress";
+  } else if (Date.now > new Date(task.end)) {
+    badgeColor = "badge-danger";
+    barColor = "bg-danger";
+    badgeText = "Overdue";
+  }
+
+  return `
+  <div class="row">
+    <div class="col-9">
+        <h5>${task.text}
+            <span class="badge badge-pill ${badgeColor}">${badgeText}</span>
+        </h5>
+        <a>${task.begin} to ${task.end}</a>
+    </div>
+    <div class="col-3">
+        <h6>Estimated Progress: ${progress.toFixed(0)}%</h6>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped ${barColor}" 
+            style="width: ${progress}%"></div>
+        </div>
+    </div>
+  </div><br />`;
+}
+
+function taskIsCurrent(task) {
+  var begin = new Date(task.begin);
+  if (Date.now() >= begin) {
+      var end = new Date(task.end);
+      if (Date.now() <= end) {
+          return true;
+      }
+  }
+
+  return false;
 }
 
 particlesJS("particles-js", 
