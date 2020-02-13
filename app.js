@@ -14,7 +14,7 @@ function getMeetingHtml(meeting) {
   }
 
   return `
-  <h3>${meeting.date}</h3><br />
+  <h3><i class="fas fa-handshake"></i>  ${meeting.date}</h3><br />
   <div class="row">
   <div class="col-4">
       <h4><span class="badge badge-pill badge-danger">Deliverables</span></h4>
@@ -63,7 +63,7 @@ function getTaskHtml(task) {
   return `
   <div class="row">
     <div class="col-9">
-        <h5>${task.text}
+        <h5><i class="fas fa-clipboard-check"></i>  ${task.text}
             <span class="badge badge-pill ${badgeColor}">${badgeText}</span>
         </h5>
         <a>${task.begin} to ${task.end}</a><br />
