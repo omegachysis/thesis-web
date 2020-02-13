@@ -50,7 +50,7 @@
                     <h3>Progress</h3><br />
                     <h6 id="overallProgress">Estimated progress:</h6>
                     <div class="progress">
-                        <div class="progress-bar progress-bar-striped" 
+                        <div id="progressBar" class="progress-bar progress-bar-striped" 
                         style="width: 0%"></div>
                     </div>
                     <br />
@@ -105,6 +105,10 @@
             }
 
             $("#currentTasks").html(tasks);
+
+            var overallProgress = getOverallProgress(json.tasks) * 100;
+            $("#overallProgress").text(`Estimated progress: ${overallProgress.toFixed(0)}%`);
+            $("#progressBar").css("width", overallProgress+"%");
         });
 
         var timeLeft = new Date("2021-03-30") - Date.now();
@@ -113,10 +117,7 @@
         var timePercent = ((totalTime - timeLeft) / totalTime) * 100;
         var daysLeft = timeLeft / 86400000;
 
-        var overallProgress = 0;
-
         $("#timeBar").css("width", timePercent+"%");
-        $("#overallProgress").text(`Estimated progress: ${overallProgress}%`);
         setTimeout(function(){
             odometer.innerHTML = 456;
         }, 1000);

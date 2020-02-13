@@ -69,6 +69,17 @@ function getTaskHtml(task) {
   </div><br />`;
 }
 
+function getOverallProgress(tasks) {
+  var progress = 0;
+  var total = 0;
+  for (task of tasks) {
+    progress += task.progress;
+    total += task.effort;
+  }
+
+  return progress / total;
+}
+
 function taskIsCurrent(task) {
   var begin = new Date(task.begin);
   if (Date.now() >= begin) {
