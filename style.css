@@ -23,6 +23,10 @@ body {
     background: #ffffff;
     height: 100%;
     overflow-y: scroll;
+
+    -moz-box-shadow:    0 0 10px grey;
+    -webkit-box-shadow: 0 0 10px grey;
+    box-shadow:         0 0 10px grey;
 }
 
 .content::-webkit-scrollbar {
@@ -31,7 +35,7 @@ body {
 
 canvas {
     display:block;
-    background: #bbbbbf;
+    background: #e9ecef;
     position: fixed;
     z-index: -1;
 }
