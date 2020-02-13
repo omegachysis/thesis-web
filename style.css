@@ -25,6 +25,7 @@ body {
 
 .content {
     max-width: 1200px;
+    width: 90%;
     margin: auto;
     background: #ffffff;
     height: 100%;
@@ -33,6 +34,12 @@ body {
     -moz-box-shadow:    0 0 10px grey;
     -webkit-box-shadow: 0 0 10px grey;
     box-shadow:         0 0 10px grey;
+}
+
+.card {
+    -moz-box-shadow:    0 0 5px grey;
+    -webkit-box-shadow: 0 0 5px grey;
+    box-shadow:         0 0 5px grey;
 }
 
 .content::-webkit-scrollbar {
