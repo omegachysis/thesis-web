@@ -13,10 +13,6 @@
     }
 }
 
-body {
-    padding-top: 3.5rem;
-}
-
 .navbar {
     -moz-box-shadow:    0 0 5px grey;
     -webkit-box-shadow: 0 0 5px grey;
@@ -24,6 +20,7 @@ body {
 }
 
 .content {
+    padding-top: 6rem;
     max-width: 1200px;
     width: 90%;
     margin: auto;

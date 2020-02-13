@@ -2,7 +2,7 @@
 <head>
 <title>Evo-CA Thesis - Home</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://github.hubspot.com/odometer/themes/odometer-theme-train-station.css" />
 
@@ -20,39 +20,17 @@
             <hr class="my-4">
             <p>Probing emergent behvavior by combining evolutionary methods with one of the most visually stunning computational models</p>
             <p>Supervised by Dr. Thang N. Bui</p>
-            <button type="button" class="btn btn-danger btn-lg">Learn More</button>
+            <a role="button" class="btn btn-danger btn-lg" href="about.html">Learn More</a>
         </div>
 
-        <div class="container">
-            <h3>2020 February 12</h3><br />
-            <div class="row">
-                <div class="col-4">
-                    <h4><span class="badge badge-pill badge-danger">Deliverables</span></h4>
-                    <ul>
-                        <li>Overall development idea</li>
-                        <li>Questions about learning resources and weekly housekeeping tasks</li>
-                    </ul>
-                </div>
-                <div class="col-4">
-                    <h4><span class="badge badge-pill badge-success">Discussion</span></h4>
-                    <ul>
-                        <li><a href="https://en.wikipedia.org/wiki/Evolutionary_algorithm">Evolutionary Algorithms</a> - big picture, generic, lots of freedom</li>
-                        <li>Local optimizations &amp; bias</li>
-                        <li>Exploration &amp; Exploitation</li>
-                        <li><a href="https://en.wikipedia.org/wiki/Genetic_algorithm#/Elitism">Elitism</a></li>
-                        <li>Perturbation - stochastically perturb a subset of the population, introducing additional random variation</li>
-                    </ul>
-                </div>
-                <div class="col-4">
-                    <h4><span class="badge badge-pill badge-primary">Continuing</span></h4>
-                    <ul>
-                        <li>Eiben &amp; Smith - Introduction to Evolutionary Computing</li>
-                        <li><strong>Summarized research goals</strong></li>
-                    </ul>
+        <div class="container"><div id="last-meeting">
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading...</span>
                 </div>
             </div>
-        </div>
-        <br /><hr>
+        </div></div><br /><hr>
+
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -90,7 +68,7 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js" integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
     <script src="https://github.hubspot.com/odometer/odometer.js"></script>
     <script src="particles.min.js"></script>
@@ -100,17 +78,21 @@
 <script>
     $(function() {
         $("#navbar").load("_navbar.html");
+
+        $.getJSON("meetings.json", function(json) {
+            $("#last-meeting").html(getMeetingHtml(json.meetings[0]));
+        });
+
+        var timeLeft = new Date("2021-03-30") - Date.now();
+        var totalTime = new Date("2021-03-30") - new Date("2020-01-13");
+        
+        var timePercent = ((totalTime - timeLeft) / totalTime) * 100;
+        var daysLeft = timeLeft / 86400000;
+
+        $("#timeBar").css("width", timePercent+"%");
+        setTimeout(function(){
+            odometer.innerHTML = 456;
+        }, 1000);
     });
-
-    var timeLeft = new Date("2021-03-30") - Date.now();
-    var totalTime = new Date("2021-03-30") - new Date("2020-01-13");
-    
-    var timePercent = ((totalTime - timeLeft) / totalTime) * 100;
-    var daysLeft = timeLeft / 86400000;
-
-    $("#timeBar").css("width", timePercent+"%");
-    setTimeout(function(){
-        odometer.innerHTML = 456;
-    }, 1000);
 </script>
 </html>

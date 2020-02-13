@@ -1,0 +1,24 @@
+{
+"meetings": [
+
+{
+    "date": "2020 February 12",
+    "deliverables": [
+        "Overall development idea",
+        "Questions about learning resources and weekly housekeeping"
+    ],
+    "discussion": [
+        "<a href='https://en.wikipedia.org/wiki/Evolutionary_algorithm'>Evolutionary Algorithms</a> - big picture, generic, lots of freedom",
+        "Local optimizations &amp; bias",
+        "Exploration &amp; Exploitation",
+        "<a href='https://en.wikipedia.org/wiki/Genetic_algorithm#/Elitism'>Elitism</a>",
+        "Perturbation - stochastically perturb a subset of the population, introducing additional random variation"
+    ],
+    "continuing": [
+        "Eiben &amp; Smith - Introduction to Evolutionary Computing",
+        "<strong>Summarized research goals</strong>"
+    ]
+}
+
+]
+}
