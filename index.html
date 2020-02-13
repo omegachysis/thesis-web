@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>Evo-CA Thesis - Home</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://github.hubspot.com/odometer/themes/odometer-theme-train-station.css" />
+
+    <link href="./style.css" rel="stylesheet">
+
+</head>
+<body>
+    <div id="particles-js"></div>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
+        <div style="width: 1200px; margin: auto">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-dna"></i> Evolutionary Cellular Automata
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item disabled">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="jumbotron">
+            <h1 class="display-3"><i class="fas fa-dna"></i> Evolutionary Cellular Automata</h1>
+            <p class="lead">A thesis by Matthew A. Robinson, a student of Penn State Harrisburg's School of Science, Engineering, and Technology</p>
+            <hr class="my-4">
+            Probing emergent behvavior by combining evolutionary methods with one of the most visually stunning computational models
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1>Progress</h1>
+                    <br />
+                    <p>Estimated progress:</p>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" 
+                        style="width: 0%"></div>
+                    </div>
+                    <br />
+                    <p>Time passed so far:</p>
+                    <div class="progress">
+                        <div id="timeBar" class="progress-bar progress-bar-striped progress-bar-animated bg-danger" 
+                        style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="col-md-auto">
+                    <br />
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h3 class="card-title">Days Left</h3>
+                            <div id="odometer" class="odometer" style="font-size: 100px">999</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <hr>
+        <footer class="container">
+            <p>&copy; Matthew A. Robinson 2020</p>
+        </footer>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js" integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+    <script src="https://github.hubspot.com/odometer/odometer.js"></script>
+    <script src="./particles.min.js"></script>
+    <script src="./app.js"></script>
+</body>
+<script>
+
+    var timeLeft = new Date("2021-03-30") - Date.now();
+    var totalTime = new Date("2021-03-30") - new Date("2021-01-13");
+    
+    var timePercent = (totalTime.toPrecision(3) / timeLeft) * 100;
+    var daysLeft = timeLeft / 86400000;
+
+    setTimeout(function(){
+        $("#timeBar").css("width", timePercent+"%");
+        odometer.innerHTML = 456;
+    }, 1000);
+</script>
+</html>
