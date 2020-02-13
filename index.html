@@ -118,9 +118,7 @@
         var daysLeft = timeLeft / 86400000;
 
         $("#timeBar").css("width", timePercent+"%");
-        setTimeout(function(){
-            odometer.innerHTML = 456;
-        }, 1000);
+        odometer.innerHTML = daysLeft.toFixed(0);
     });
 </script>
 </html>
