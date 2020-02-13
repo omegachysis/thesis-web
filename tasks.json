@@ -19,7 +19,7 @@
 
 {
     "begin": "2020-02-26",
-    "end": "2021-04-01",
+    "end": "2020-04-01",
     "text": "Develop fitness functions for pattern recognition",
     "effort": 210,
     "progress": 0
@@ -27,7 +27,7 @@
 
 {
     "begin": "2020-02-26",
-    "end": "2021-04-01",
+    "end": "2020-04-01",
     "text": "Parallelize shift-stochastic cellular automata construction",
     "effort": 70,
     "progress": 0
