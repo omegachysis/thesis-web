@@ -49,7 +49,7 @@
     $("#navbar").load("_navbar.html");
 
     $(function() {
-        $.getJSON("tasks.json", function(json) {
+        loadTasks(function(json) {
             var tasks = "";
             for (task of json.tasks) {
                 tasks += getTaskHtml(task);

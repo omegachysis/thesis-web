@@ -100,11 +100,11 @@
     $("#navbar").load("_navbar.html");
 
     $(function() {
-        $.getJSON("meetings.json", function(json) {
+        loadMeetings(function(json) {
             $("#lastMeeting").html(getMeetingHtml(json.meetings[0]));
         });
 
-        $.getJSON("tasks.json", function(json) {
+        loadTasks(function(json) {
             var tasks = "";
             for (task of json.tasks) {
                 if (taskIsCurrent(task)) {

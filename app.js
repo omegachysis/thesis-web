@@ -1,4 +1,12 @@
 
+function loadTasks(callback) {
+  $.getJSON("tasks0.json", callback);
+}
+
+function loadMeetings(callback) {
+  $.getJSON("meetings.json", callback);
+}
+
 function getMeetingHtml(meeting) {
   var deliverables = "";
   for (item of meeting.deliverables) {
