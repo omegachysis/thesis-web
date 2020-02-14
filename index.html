@@ -104,7 +104,7 @@
             $("#lastMeeting").html(getMeetingHtml(json.meetings[0]));
         });
 
-        loadTasks(function(json) {
+        $.getJSON("tasks.json", {_: Date.now()}, function(json) {
             var tasks = "";
             for (task of json.tasks) {
                 if (taskIsCurrent(task)) {

@@ -1,10 +1,10 @@
 
 function loadTasks(callback) {
-  $.getJSON("tasks1.json", callback);
+  $.getJSON("tasks.json", callback, {_: Date.now()});
 }
 
 function loadMeetings(callback) {
-  $.getJSON("meetings.json", callback);
+  $.getJSON("meetings.json", callback, {_: Date.now()});
 }
 
 function getMeetingHtml(meeting) {
