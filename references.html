@@ -15,7 +15,36 @@
     <div class="content">
         <br />
         <div class="container">
-            <strong>Coming soon</strong>
+            <div id="passwordContainer" style="display: none">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="alert alert-danger" role="alert">
+                            <h5 class="alert-heading"><i class="fas fa-lock"></i>  Password Required</h5>
+                            <hr>
+                            The following contains copyrighted material that is 
+                            only available through outside organizations or Penn State 
+                            University Library Access. Use your organization's access 
+                            origin to get this material, or enter an access password:
+                        </div>
+                    </div>
+                    <div class="col">
+                        <form id="passwordForm" onSubmit="return passwordSubmit(this);">
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="password" placeholder="Password">
+                            </div>
+                            <button class="btn btn-primary btn-lg btn-block" type="submit"><i class="fas fa-key"></i>  Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="accessGranted" style="display: none">
+                <div class="alert alert-success" role="alert">
+                    <h5 class="alert-heading"><i class="fas fa-lock-open"></i>  Access Granted</h5>
+                    <hr>
+                    You have been granted access to the copyrighted material on this page.
+                    Please do not redistribute this material.
+                </div>
+            </div>
         </div>
         <hr>
         <footer class="container">
@@ -29,14 +58,45 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js" integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
     <script src="particles.min.js"></script>
+    <script src="js.cookie.js"></script>
     <script src="app.js"></script>
+    <script src="sjcl.js"></script>
 
 </body>
 <script>
     $("#navbar").load("_navbar.html");
     
+    function passwordSubmit(form) {
+        var password = form.password.value;
+        var shaBits = sjcl.hash.sha256.hash(password);
+        var hash = sjcl.codec.hex.fromBits(shaBits);
+        !submitHash(hash, false);
+        return false;
+    }
+
+    function submitHash(hash) {
+        $.ajax({
+            url:`secret/${hash}/ok`,
+            type:'HEAD',
+            error: function() {
+                $("#passwordContainer").show();
+                $("#accessGranted").hide();
+                if (hash !== undefined)
+                    alert("Incorrect password");
+                return false;
+            },
+            success: function() {
+                Cookies.set("accessHash", hash, { path: "/", expires: 72 });
+                $("#passwordContainer").hide();
+                $("#accessGranted").show();
+                return true;
+            }
+        });
+    }
+
     $(function() {
-        
+        var accessHash = Cookies.get("accessHash");
+        submitHash(accessHash, true);
     });
 </script>
 </html>
