@@ -15,6 +15,8 @@
     <div class="content">
         <br />
         <div class="container">
+            <h1>Reference Material &amp; Papers</h1>
+            <br />
             <div id="passwordContainer" style="display: none">
                 <div class="row">
                     <div class="col-8">
@@ -45,6 +47,32 @@
                     Please do not redistribute this material.
                 </div>
             </div>
+            <hr>
+            <h3>Cellular Automata</h3>
+
+            <hr>
+            <h3>Evolutionary Computing</h3><br />
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-header">
+                            Book
+                            <a class="referenceMaterial btn btn-sm float-right disabled" href="secret/hash/Eiben - Evolutionary Computing.pdf" target="_blank">Open  <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Introduction to Evolutionary Programming (2nd Ed.)</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Eiben &amp; Smith</h6>
+                            <p class="card-text">ISBN: 978-3-662-44873-1</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+            <h3>Self-Organizing Behavior</h3>
+            
+            <hr>
         </div>
         <hr>
         <footer class="container">
@@ -70,12 +98,12 @@
         var password = form.password.value;
         var shaBits = sjcl.hash.sha256.hash(password);
         var hash = sjcl.codec.hex.fromBits(shaBits);
-        !submitHash(hash, false);
+        submitHash(hash, false);
         return false;
     }
 
     function submitHash(hash) {
-        $.ajax({
+        return $.ajax({
             url:`secret/${hash}/ok`,
             type:'HEAD',
             error: function() {
@@ -96,7 +124,14 @@
 
     $(function() {
         var accessHash = Cookies.get("accessHash");
-        submitHash(accessHash, true);
+        if (submitHash(accessHash)) {
+            $(".referenceMaterial").each(function() {
+                $(this).attr("href", $(this).attr("href").replace("hash", accessHash));
+                $(this).addClass("btn-primary");
+                $(this).removeClass("disabled");
+            });
+        }
     });
+
 </script>
 </html>

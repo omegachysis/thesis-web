@@ -39,9 +39,9 @@
 }
 
 .card {
-    -moz-box-shadow:    0 0 5px grey;
-    -webkit-box-shadow: 0 0 5px grey;
-    box-shadow:         0 0 5px grey;
+    -moz-box-shadow:    2px 2px 5px grey;
+    -webkit-box-shadow: 2px 2px 5px grey;
+    box-shadow:         2px 2px 5px grey;
 }
 
 .content::-webkit-scrollbar {
