@@ -98,39 +98,37 @@
         var password = form.password.value;
         var shaBits = sjcl.hash.sha256.hash(password);
         var hash = sjcl.codec.hex.fromBits(shaBits);
-        submitHash(hash, false);
+        submitHash(hash).done(function() {
+            location.reload();
+        });
         return false;
     }
 
     function submitHash(hash) {
         return $.ajax({
             url:`secret/${hash}/ok`,
-            type:'HEAD',
-            error: function() {
-                $("#passwordContainer").show();
-                $("#accessGranted").hide();
-                if (hash !== undefined)
-                    alert("Incorrect password");
-                return false;
-            },
-            success: function() {
-                Cookies.set("accessHash", hash, { path: "/", expires: 72 });
-                $("#passwordContainer").hide();
-                $("#accessGranted").show();
-                return true;
-            }
+            type:'HEAD'
+        }).done(function() {
+            Cookies.set("accessHash", hash, { path: "/", expires: 72 });
+            $("#passwordContainer").hide();
+            $("#accessGranted").show();
+        }).fail(function() {
+            $("#passwordContainer").show();
+            $("#accessGranted").hide();
+            if (hash !== undefined)
+                alert("Incorrect password");
         });
     }
 
     $(function() {
         var accessHash = Cookies.get("accessHash");
-        if (submitHash(accessHash)) {
+        submitHash(accessHash).done(function() {
             $(".referenceMaterial").each(function() {
                 $(this).attr("href", $(this).attr("href").replace("hash", accessHash));
                 $(this).addClass("btn-primary");
                 $(this).removeClass("disabled");
             });
-        }
+        });
     });
 
 </script>
