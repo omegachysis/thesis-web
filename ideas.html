@@ -15,7 +15,108 @@
     <div class="content">
         <br />
         <div class="container">
-            <strong>Coming soon</strong>
+            <h2>Ideas</h2><br />
+            <p>Here is a place to see ongoing questions or general ideas that have 
+                not been formalized well enough to become tasks on their own yet; also 
+                here is found questions that may not be sufficient for this thesis or 
+                may be too difficult to answer yet.
+            </p>
+
+            <h3><i class="fas fa-question"></i>  Open questions &amp; Things to think about now:</h3><br />
+
+            <div class="alert alert-secondary">
+                <h6>
+                    Is it possible in a realistic timeframe to use these methods to evolve CA 
+                    that maintain homeostasis in an environment of finite resources? 
+                    Is it possible to even develop the concept of resource-gathering in a 
+                    stochastic model?
+                </h6>
+            </div>
+            <p>
+                With the stochastic mass-preserving models tried so far,
+                it is clear that there can be some sense of 'separation' that occupies a 
+                finite volume, as expansion cannot go unlimited. However, it is not clear 
+                what it might mean to think of the environment as having 'energy' or resources 
+                that can be 'gathered' by an evolutionary CA in the model.
+            </p>
+
+            <div class="alert alert-secondary">
+                <h6>
+                    Asssuming Evo-CA with competitive resource-gathering behaviors 
+                    can be generated, can we transition from genetic algorithms to 
+                    selection based on those simulations alone?
+                </h6>
+            </div>
+            <p>
+                While it makes sense to use genetic algorithms or some other 
+                evolutionary method on isolated simulations of each individual to initially
+                form those individuals and analyze their complexity, it might make sense to 
+                eventually examine how those individuals interact or even try to observe 
+                emergence on the population level, not just on the invidual level. This 
+                opens the potentiality of analyzing <strong>co-evolution</strong> on top 
+                of basic self-organiziation, but it is not clear now how that might work 
+                or what the ideal time to switch would be, or if that is even a feasible step.
+            </p>
+
+            <div class="alert alert-secondary">
+                <h6>
+                    Should we focus on evolving initial states, cell rules,
+                    environmental factors, or all three in a hybrid model?
+                </h6>
+            </div>
+            <p>
+                We can either fix stochastic rules and environments and evolve the 
+                starting state of the system to attempt to produce emergent behavior, do 
+                the same but evolve rules instead, or we can fix the other two and evolve the 
+                'environment', or the way the cell values are changed dynamically throughout 
+                the simulation (e.g. we might inject random spikes in mass into the simulation 
+                as it runs to simulation inputs of 'energy'). Maybe generating emergent behavior 
+                the eventually mimics microbiological processes will be found the fastest 
+                by taking on a hybrid model of all of these factors. However, there might be 
+                some crossover between the fitness function and these adjustments in an 
+                undesireable way (e.g. random injections of energy might be 
+                indistinguishable from self-organization on some levels).
+            </p>
+
+            <div class="alert alert-secondary">
+                <h6>
+                    How complex does the model need to be to support features like 
+                    self-replication evolving without fine-tuning?
+                </h6>
+            </div>
+            <p>
+                We already know that fairly simple transition rules on simple binary CAs 
+                are enough to have Turing-completeness as well as self-replication
+                (see: <a href="https://en.wikipedia.org/wiki/Life-like_cellular_automaton">https://en.wikipedia.org/wiki/Life-like_cellular_automaton</a>), but no 
+                substantial evidence has been produced of evolving cellular automata 
+                with self-replication where the rules are not fine-tuned for 
+                producing said features. If the rules are stochastic, how complex do 
+                they have to be to produce self-replication and other life-like behavior?
+                With completely local behavior, it is much harder to conclude the a minimal
+                set of particles and/or physical laws is enough to simulate complex behavior.
+                Real biochemical processes which do have a very limited 
+                set of base elementary particles and physical laws guide very complex 
+                formations but are governed by non-local forces and equations of motion 
+                that cellular automata do not simulate. A natural hypothesis might then be 
+                that the cells in a CA capable of life-like behavior are actually 
+                analogous to fields and groups of cells are analogous to particles instead 
+                of the usual model that cells in a CA are analogous to chemicals or even 
+                subsystems of an organism. If this is the case, even the most rudimentary 
+                life-like behavior might only evolve without fine-tuning under 
+                limited sets of cells or rules when the grid is absurdly large.
+            </p>
+
+            <div class="alert alert-secondary">
+                <h6>
+                    What real-life structures would the cells in an evolving-CA be 
+                    analogous to if life-like behavior is observed?
+                    Particles? Chemicals? Proteins? Organelles? Organisms?
+                    Maybe none of these?
+                </h6>
+            </div>
+            <p>
+                See the question above this one for an explanation.
+            </p>
         </div>
         <hr>
         <footer class="container">
