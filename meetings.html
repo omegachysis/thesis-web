@@ -43,7 +43,7 @@
     $("#navbar").load("_navbar.html");
 
     $(function() {
-        $.getJSON("meetings.json", {_: Date.now()}, function(json) {
+        loadMeetings(function(json) {
             var meetings = "";
             for (meeting of json.meetings) {
                 meetings += "<hr>";
