@@ -3,18 +3,11 @@
 
 {
     "begin": "2020-02-12",
-    "end": "2020-02-19",
-    "text": "Create thesis website",
-    "effort": 70,
-    "progress": 70
-},
-
-{
-    "begin": "2020-02-12",
     "end": "2020-03-04",
     "text": "Read Eiben &amp; Smith - Introduction to Evolutionary Computing",
     "effort": 140,
-    "progress": 31
+    "progress": 31,
+    "notes": "Current page: 49, Section 4.1"
 },
 
 {
@@ -63,6 +56,14 @@
     "text": "Prepare and present thesis defense",
     "effort": 300,
     "progress": 0
+},
+
+{
+    "begin": "2020-02-12",
+    "end": "2020-02-19",
+    "text": "Create thesis website",
+    "effort": 70,
+    "progress": 70
 }
 
 ]

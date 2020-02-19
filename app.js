@@ -74,8 +74,10 @@ function getTaskHtml(task) {
         <h5><i class="fas fa-clipboard-check"></i>  ${task.text}
             <span class="badge badge-pill ${badgeColor}">${badgeText}</span>
         </h5>
-        <a>${task.begin} to ${task.end}</a><br />
-        <a>${daysLeft.toFixed(0)} days left</a>
+        <a class="text-muted">
+          ${task.begin} to ${task.end}, ${daysLeft.toFixed(0)} days left
+        </a><br />
+        ${task.notes || ""}
     </div>
     <div class="col-3">
         <strong>Estimated Progress: ${progress.toFixed(0)}%</strong>
@@ -89,7 +91,7 @@ function getTaskHtml(task) {
             style="width: ${timePassed}%"></div>
         </div>
     </div>
-  </div><br />`;
+  </div><hr>`;
 }
 
 function getOverallProgress(tasks) {
