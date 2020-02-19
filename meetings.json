@@ -10,10 +10,14 @@
         "From EC reading: consider self-adaptation (pg. 58), having co-evolving parameters. How useful could this be in a highly-corrugated landscape?"
     ],
     "discussion": [
-        
+        "Undergoing formalization of CA stochastic-shift model",
+        "Quick convergence of Evolutionary Strategy implemented so far is likely due to the lack of sophistication in the current method and is common (even expected)",
+        "Explore the model more by setting up several (hand-crafted) scenarios and seeing if it exhibits intuitive behavior, or behavior that we would want from a model that could evolve self-organizing behaviors. Adjust the model as needed. Thinking about switching to evolving rules was triggered by some of the pathological features the model has shown so far, but we can probably fix these with some adjustment to the model."
     ],
     "continuing": [
-        
+        "Continue reading about Evolutionary Computing and try to implement some more sophisticated EC strategies",
+        "Set up experiments and test the model's fitness to intuition, described in the discussion",
+        "Finish a formalization of the stochastic-shift model."
     ]
 },
 {
