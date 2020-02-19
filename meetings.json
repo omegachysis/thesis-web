@@ -6,7 +6,8 @@
     "deliverables": [
         "Research goal: focused on developing a model capable of evolution of a wide range of self-organizing behaviors",
         "From Evolutionary Computing reading: probably want to focus on EAs, make a case for this",
-        "Rudimentary EA is showing slow but positive evolution with shift-stochastic model. Nothing is achieving high performance yet though, just overall growth in the population"
+        "Rudimentary EA is showing slow but positive evolution with shift-stochastic model. Nothing is achieving high performance yet though, just overall growth in the population",
+        "From EC reading: consider self-adaptation (pg. 58), having co-evolving parameters. How useful could this be in a highly-corrugated landscape?"
     ],
     "discussion": [
         
