@@ -13,7 +13,7 @@
 {
     "begin": "2020-02-19",
     "end": "2020-02-26",
-    "text": "Refine stochastic shift model as needed to have greater stability and symmetry",
+    "text": "Adjust stochastic shift model for better stability",
     "effort": 60,
     "progress": 0
 },
