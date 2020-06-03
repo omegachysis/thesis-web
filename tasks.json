@@ -2,8 +2,16 @@
 "tasks": [
 
 {
+    "begin": "2020-04-08",
+    "end": "2020-06-10",
+    "text": "Prepare a lecture on <a href='https://distill.pub/2020/growing-ca/'>Growing Neural Cellular Automata</a>",
+    "effort": 70,
+    "progress": 10
+},
+
+{
     "begin": "2020-02-12",
-    "end": "2020-03-04",
+    "end": "2020-07-01",
     "text": "Read Eiben &amp; Smith - Introduction to Evolutionary Computing",
     "effort": 140,
     "progress": 48,
@@ -11,35 +19,19 @@
 },
 
 {
-    "begin": "2020-02-19",
-    "end": "2020-02-26",
-    "text": "Adjust stochastic shift model for better stability",
-    "effort": 60,
-    "progress": 0
-},
-
-{
     "begin": "2020-01-01",
     "end": "2020-08-01",
     "text": "Collect and analyze data and develop procedures, methods, and models",
     "effort": 1700,
-    "progress": 25
+    "progress": 200
 },
 
 {
     "begin": "2020-02-26",
-    "end": "2020-04-01",
+    "end": "2020-08-01",
     "text": "Develop fitness functions for pattern recognition",
     "effort": 210,
-    "progress": 5
-},
-
-{
-    "begin": "2020-02-26",
-    "end": "2020-04-01",
-    "text": "Parallelize shift-stochastic cellular automata construction",
-    "effort": 70,
-    "progress": 0
+    "progress": 20
 },
 
 {
@@ -59,11 +51,19 @@
 },
 
 {
-    "begin": "2020-03-01",
+    "begin": "2021-01-01",
     "end": "2021-04-01",
     "text": "Prepare and present thesis defense",
     "effort": 300,
     "progress": 0
+},
+
+{
+    "begin": "2020-02-19",
+    "end": "2020-02-26",
+    "text": "Adjust stochastic shift model for better stability",
+    "effort": 60,
+    "progress": 60
 },
 
 {

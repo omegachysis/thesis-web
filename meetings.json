@@ -1,6 +1,31 @@
 {
 "meetings": [
-
+{
+    "date": "2020 June 3",
+    "deliverables": [
+        "Present a lecture on the methods and concepts presented in <a href='https://distill.pub/2020/growing-ca/'>Growing Neural Cellular Automata</a>"
+    ],
+    "discussion": [
+        "TBD"
+    ],
+    "continuing": [
+        "TBD"
+    ]
+},
+{
+    "date": "2020 April 8",
+    "deliverables": [
+        "More reading from Eiben &amp; Smith"
+    ],
+    "discussion": [
+        "Discussion of research results found in <a href='https://distill.pub/2020/growing-ca/'>Growing Neural Cellular Automata</a>",
+        "It is possible the results are generated only after a very time-consuming and resource-intensive training period that we might not have the ability to replicate.",
+        "Cellular Automata with the morphogenesis qualities produced might not be interesting for our goals of study: replicating a given pattern rather than generating patterns in the first place."
+    ],
+    "continuing": [
+        "Present a lecture on the methods and concepts presented in the paper"
+    ]
+},
 {
     "date": "2020 February 19",
     "deliverables": [
